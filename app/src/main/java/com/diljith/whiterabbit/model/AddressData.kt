@@ -9,5 +9,5 @@ data class AddressData(
     val geo: Geo,
     val street: String,
     val suite: String,
-    val zipcode: String
-): Parcelable
+    val zipcode: String,
+) : Parcelable

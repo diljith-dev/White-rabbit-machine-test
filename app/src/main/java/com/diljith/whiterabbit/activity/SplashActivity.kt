@@ -1,6 +1,5 @@
 package com.diljith.whiterabbit.activity
 
-import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -57,8 +56,6 @@ class SplashActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 }
-
-
             }
 
             override fun onFailure(call: Call<ApiResponse>, t: Throwable) {

@@ -6,13 +6,13 @@ import android.content.Context
 import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.diljith.whiterabbit.Utils
+import com.diljith.whiterabbit.utils.Utils
 import com.diljith.whiterabbit.model.Employee
 
 
 class DBOpenHelper(
     context: Context?,
-    factory: SQLiteDatabase.CursorFactory?
+    factory: SQLiteDatabase.CursorFactory?,
 ) :
     SQLiteOpenHelper(
         context, DATABASE_NAME,
@@ -55,14 +55,14 @@ class DBOpenHelper(
 
                 v.put(id, e.id)
                 v.put(username, e.username)
-                v.put(name,e.name)
+                v.put(name, e.name)
                 v.put(email, e.email)
                 v.put(profile_image, e.profile_image)
 
                 v.put(phone, e.phone)
-                v.put(website,e.website)
-                v.put(address,Utils().wrapData(e.address))
-                v.put(company,Utils().wrapData(e.company))
+                v.put(website, e.website)
+                v.put(address, Utils().wrapData(e.address))
+                v.put(company, Utils().wrapData(e.company))
 
                 db.insert(EMPLOYEE_TABLE, null, v)
             }
@@ -115,9 +115,9 @@ class DBOpenHelper(
                             website)
 
                         list.add(modelList)
-                    } while (cursor.moveToNext());
+                    } while (cursor.moveToNext())
                 }
-                cursor.close();
+                cursor.close()
             }
 
         } catch (e: Exception) {
@@ -127,10 +127,9 @@ class DBOpenHelper(
     }
 
 
-
     fun clearAllLocalTableData() {
         val db = this.writableDatabase
-        db.execSQL("delete from $EMPLOYEE_TABLE");
+        db.execSQL("delete from $EMPLOYEE_TABLE")
         db.close()
     }
 
@@ -143,18 +142,12 @@ class DBOpenHelper(
         const val id = "id"
         const val username = "username"
         const val name = "name"
-        const val email="email"
-        const val profile_image="profile_image"
+        const val email = "email"
+        const val profile_image = "profile_image"
 
-        const val phone="phone"
-        const val website="website"
-        const val address="address"
-        const val company="company"
-
-
-
-
-
-
+        const val phone = "phone"
+        const val website = "website"
+        const val address = "address"
+        const val company = "company"
     }
 }

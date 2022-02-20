@@ -13,5 +13,5 @@ data class Employee(
     val phone: String?,
     val profile_image: String?,
     val username: String?,
-    val website: String?
-): Parcelable
+    val website: String?,
+) : Parcelable

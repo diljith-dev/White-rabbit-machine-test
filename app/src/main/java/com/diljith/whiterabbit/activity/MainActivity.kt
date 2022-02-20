@@ -78,8 +78,9 @@ class MainActivity : AppCompatActivity(), EmployeeListAdapter.OnItemClick {
             val filterList = ArrayList<Employee>()
 
             for (i in listFromDb) {
-                if (i.name.lowercase().startsWith(text.lowercase())||
-                    i.email.lowercase().startsWith(text.lowercase())) {
+                if (i.name.lowercase().startsWith(text.lowercase()) ||
+                    i.email.lowercase().startsWith(text.lowercase())
+                ) {
                     filterList.add(i)
                 }
             }

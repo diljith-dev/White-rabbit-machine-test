@@ -8,7 +8,6 @@ import com.diljith.whiterabbit.model.Employee
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_profile_details.*
-import kotlinx.android.synthetic.main.single_employee_item.view.*
 
 class ProfileDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +15,7 @@ class ProfileDetailsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile_details)
         setProfile()
     }
+
     private fun getData(): Employee? {
         val extras = intent.extras
         if (extras != null) {
@@ -23,30 +23,28 @@ class ProfileDetailsActivity : AppCompatActivity() {
         }
         return null
     }
-    @SuppressLint("SetTextI18n")
-    private fun setProfile()
-    {
-       val d= getData()
-        if (d != null) {
-            tvEmpName.text=d.name
-            tvUserName.text="User name : "+d.username
-            tvEmail.text="E mail : "+d.email
-            tvPhone.text="Phone : "+d.phone
-            tvWebSite.text="Web site : "+d.website
 
-            if(d.address!=null)
-            {
-                tvStreet.text="Street : "+d.address.street
-                tvSuite.text="Suite : "+d.address.suite
-                tvPinCode.text="Zip code : "+d.address.zipcode
-                tvCity.text="City : "+d.address.city
+    @SuppressLint("SetTextI18n")
+    private fun setProfile() {
+        val d = getData()
+        if (d != null) {
+            tvEmpName.text = d.name
+            tvUserName.text = "User name : " + d.username
+            tvEmail.text = "E mail : " + d.email
+            tvPhone.text = "Phone : " + d.phone
+            tvWebSite.text = "Web site : " + d.website
+
+            if (d.address != null) {
+                tvStreet.text = "Street : " + d.address.street
+                tvSuite.text = "Suite : " + d.address.suite
+                tvPinCode.text = "Zip code : " + d.address.zipcode
+                tvCity.text = "City : " + d.address.city
             }
 
-            if(d.company!=null)
-            {
-                tvCompanyName.text="Name : "+d.company.name
-                tvBs.text="Catch phrase : "+d.company.catchPhrase
-                tvCatchPhrase.text="BS : "+d.company.catchPhrase
+            if (d.company != null) {
+                tvCompanyName.text = "Name : " + d.company.name
+                tvBs.text = "Catch phrase : " + d.company.catchPhrase
+                tvCatchPhrase.text = "BS : " + d.company.catchPhrase
             }
 
             val builder = Picasso.Builder(this)

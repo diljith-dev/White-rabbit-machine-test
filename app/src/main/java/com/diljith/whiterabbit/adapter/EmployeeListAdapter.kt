@@ -2,7 +2,6 @@ package com.diljith.whiterabbit.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +17,7 @@ import kotlinx.android.synthetic.main.single_employee_item.view.*
 class EmployeeListAdapter(
     private val employeeList: ArrayList<Employee>,
     private var context: Context,
-    private val OnItemClickInterFace: OnItemClick
+    private val OnItemClickInterFace: OnItemClick,
 ) : RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,7 +30,7 @@ class EmployeeListAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItems(employeeList[position])
         holder.itemView.tvName.text = employeeList[position].name
-        holder.itemView.tvCompanyName.text ="Company :"+ employeeList[position].company?.name
+        holder.itemView.tvCompanyName.text = "Company :" + employeeList[position].company?.name
 
         val builder = Picasso.Builder(context)
         builder.listener { picasso, uri, exception ->
@@ -43,14 +42,8 @@ class EmployeeListAdapter(
             .error(R.drawable.ic_baseline_camera_alt_24)
             .placeholder(R.drawable.ic_baseline_camera_alt_24)
             .into(holder.itemView.imageView, object : Callback.EmptyCallback() {
-                override fun onSuccess() {
-                    //  progressBar.setVisibility(View.GONE)
-                }
-
-                override fun onError() {
-
-
-                }
+                override fun onSuccess() {}
+                override fun onError() {}
             })
 
     }
